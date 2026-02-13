@@ -12,8 +12,9 @@
       padding: 0;
     }
     header {
-      /* A subtle, fancy gradient background for the banner */
-      background: linear-gradient(135deg, #f2e9e4 0%, #c9d6ff 100%);
+      /* Darker pastel gradient background for the banner */
+      /* Slightly deeper shades to bring more color while staying soft */
+      background: linear-gradient(135deg, #e5c3ff 0%, #a3bffa 100%);
       padding: 30px 20px;
       text-align: center;
       color: #fff;
@@ -25,6 +26,8 @@
     header img.logo {
       max-height: 90px;
       margin-bottom: 10px;
+      /* Invert the dark logo to white so it remains visible on the darker pastel banner */
+      filter: brightness(0) invert(1);
     }
     /* Brand name and tagline styling */
     .brand-text {
@@ -116,7 +119,7 @@
     <!-- GiuliaLupa brand logo and text -->
     <img src="logo.png" alt="GiuliaLupa logo" class="logo">
     <div class="brand-text">
-      <h1>GiuliaLupa</h1>
+      <!-- Only display the tagline since the logo already conveys the brand name -->
       <p class="tagline">Run with the pack</p>
     </div>
   </header>
