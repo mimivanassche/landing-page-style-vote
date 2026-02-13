@@ -158,7 +158,13 @@
     // or any similar form backend service. Submissions will be sent to that
     // endpoint and forwarded to your email and/or stored in a connected
     // spreadsheet.
-    const FORM_ENDPOINT = 'https://formspree.io/f/yourformid';
+    // This endpoint uses FormSubmit (https://formsubmit.co) to send form
+    // submissions directly to the site owner's email address. FormSubmit
+    // automatically emails the form data to you and keeps a log for later
+    // retrieval. The endpoint below uses the AJAX variant of FormSubmit so
+    // the page doesn't redirect on submission and we can display our own
+    // thank you message.
+    const FORM_ENDPOINT = 'https://formsubmit.co/ajax/vanasschemichelle@gmail.com';
     // Add selected style highlight when clicking a style option
     document.querySelectorAll('.style-option').forEach(function(option) {
       option.addEventListener('click', function() {
