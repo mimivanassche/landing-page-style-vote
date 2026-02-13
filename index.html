@@ -12,12 +12,34 @@
       padding: 0;
     }
     header {
-      background-color: #111;
-      padding: 20px;
+      /* A subtle, fancy gradient background for the banner */
+      background: linear-gradient(135deg, #f2e9e4 0%, #c9d6ff 100%);
+      padding: 30px 20px;
       text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     header img.logo {
-      max-height: 80px;
+      max-height: 90px;
+      margin-bottom: 10px;
+    }
+    /* Brand name and tagline styling */
+    .brand-text {
+      text-align: center;
+    }
+    .brand-text h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .brand-text .tagline {
+      margin: 5px 0 0;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      font-style: italic;
     }
     section {
       max-width: 600px;
@@ -91,8 +113,12 @@
 </head>
 <body>
   <header>
-    <!-- GiuliaLupa brand logo -->
+    <!-- GiuliaLupa brand logo and text -->
     <img src="logo.png" alt="GiuliaLupa logo" class="logo">
+    <div class="brand-text">
+      <h1>GiuliaLupa</h1>
+      <p class="tagline">Run with the pack</p>
+    </div>
   </header>
   <section>
     <h2>Vote for your favorite outfit</h2>
@@ -127,6 +153,12 @@
     <p id="thanks-message" style="display:none;">Thank you! We'll be in touch soon.</p>
   </section>
   <script>
+    // Replace this endpoint with your actual form endpoint. You can get a
+    // unique endpoint by creating a form on Formspree (https://formspree.io),
+    // or any similar form backend service. Submissions will be sent to that
+    // endpoint and forwarded to your email and/or stored in a connected
+    // spreadsheet.
+    const FORM_ENDPOINT = 'https://formspree.io/f/yourformid';
     // Add selected style highlight when clicking a style option
     document.querySelectorAll('.style-option').forEach(function(option) {
       option.addEventListener('click', function() {
@@ -141,11 +173,11 @@
       });
     });
 
-    // Handle form submission with Formspree
+    // Handle form submission with a form backend service
     document.getElementById('waitlist-form').addEventListener('submit', function(event) {
       event.preventDefault();
       var formData = new FormData(this);
-      fetch('https://formspree.io/f/yourformid', {
+      fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: {
           'Accept': 'application/json'
